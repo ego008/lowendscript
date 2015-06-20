@@ -124,8 +124,9 @@ function install_mysql {
     cat > /etc/mysql/conf.d/lowendbox.cnf <<END
 [mysqld]
 key_buffer = 8M
-query_cache_size = 0
-skip-innodb
+query_cache_size = 4M
+innodb = OFF
+default_storage_engine = MyISAM
 END
     invoke-rc.d mysql start
 
